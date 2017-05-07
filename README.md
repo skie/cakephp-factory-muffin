@@ -28,8 +28,7 @@ Each factory class should contain definition method that describe how to create 
 
 By convention factory classes should match with Table classes name but with ```Factory``` suffix.
 
-```
-<?php
+```php
 
 namespace App\Model\Factory;
 
@@ -65,7 +64,7 @@ And to load factories for plugin Plugin/Name use ```FactoryLoader::loadAll('Plug
 
 ## Example
 
-```
+```php
 FactoryLoader::load('Users');
 $user = FactoryLoader::create('Users');
 $users = FactoryLoader::seed(10, 'Users');
@@ -75,4 +74,4 @@ Here created 11 users records in database.
 
 ## In tests we need to flush created objects. It could be achieved by 
 
-```FactoryLoader::getInstance()->getFactoryMuffin()->deleteSaved();```
+```php FactoryLoader::getInstance()->getFactoryMuffin()->deleteSaved();```
