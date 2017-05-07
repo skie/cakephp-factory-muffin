@@ -22,7 +22,7 @@ In your composer.json, simply add `"skie/cakephp-factory-muffin": "*"` to your `
 
 ## Factory definition.
 
-Define factory classes in App\Model\Factory namespace for application level, in ${PluginScope}\Model\Factory for plugins.
+Define factory classes in ```App\Model\Factory``` namespace for application level, in ```${PluginScope}\Model\Factory for plugins```.
 
 Each factory class should contain definition method that describe how to create entity.
 
@@ -74,4 +74,6 @@ Here created 11 users records in database.
 
 ## In tests we need to flush created objects. It could be achieved by 
 
-```php FactoryLoader::getInstance()->getFactoryMuffin()->deleteSaved();```
+```php
+FactoryLoader::getInstance()->getFactoryMuffin()->deleteSaved();
+```
