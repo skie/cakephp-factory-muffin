@@ -1,4 +1,14 @@
 <?php
+/**
+ * CakephpFactoryMuffin plugin for CakePHP Rapid Development Framework
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @author        Evgeny Tomenko
+ * @since         CakephpFactoryMuffin 1.0
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
 
 namespace CakephpFactoryMuffin\Model;
 
@@ -8,9 +18,9 @@ use CakephpFactoryMuffin\Exception\MissingFactoryException;
 use League\FactoryMuffin\FactoryMuffin;
 
 /**
- * FactoryRegistry is a registry for loaded factories.
+ * Class FactoryRegistry
  *
- * Handles loading, constructing  for param class objects.
+ * @package CakephpFactoryMuffin\Model
  */
 class FactoryRegistry extends ObjectRegistry
 {
@@ -20,13 +30,6 @@ class FactoryRegistry extends ObjectRegistry
      * @var \League\FactoryMuffin\FactoryMuffin
      */
     protected $_FactoryMuffin = null;
-
-    /**
-     * Form name
-     *
-     * @var string
-     */
-    public $formName;
 
     /**
      * Constructor.
@@ -41,11 +44,11 @@ class FactoryRegistry extends ObjectRegistry
     }
 
     /**
-     * Resolve a param class name.
+     * Resolve a factory class name.
      *
      * Part of the template method for Cake\Core\ObjectRegistry::load()
      *
-     * @param  string       $class Partial class name to resolve.
+     * @param  string $class Partial class name to resolve.
      * @return string|false Either the correct class name or false.
      */
     protected function _resolveClassName($class)
@@ -54,12 +57,12 @@ class FactoryRegistry extends ObjectRegistry
     }
 
     /**
-     * Throws an exception when a param is missing.
+     * Throws an exception when a factory is missing.
      *
      * Part of the template method for Cake\Core\ObjectRegistry::load()
      *
      * @param string $class  The class name that is missing.
-     * @param string $plugin The plugin the param is missing in.
+     * @param string $plugin The plugin the factory is missing in.
      * @return void
      * @throws \CakephpFactoryMuffin\Exception\MissingFactoryException
      */
@@ -72,14 +75,14 @@ class FactoryRegistry extends ObjectRegistry
     }
 
     /**
-     * Create the param instance.
+     * Create the factory instance.
      *
      * Part of the template method for Cake\Core\ObjectRegistry::load()
      *
      * @param string $class The class name to create.
-     * @param string $alias The alias of the param.
-     * @param array $config An array of config to use for the param.
-     * @return \CakephpFactoryMuffin\Model\Factory\FactoryInterface The constructed param class.
+     * @param string $alias The alias of the factory.
+     * @param array $config An array of config to use for the factory.
+     * @return \CakephpFactoryMuffin\Model\Factory\FactoryInterface The constructed factory class.
      */
     protected function _create($class, $alias, $config)
     {
@@ -87,8 +90,9 @@ class FactoryRegistry extends ObjectRegistry
     }
 
     /**
-     * Return collection of loaded parameters
+     * Return collection of loaded factories
      *
+     * @param mixed $collectionMethod
      * @return \Cake\Collection\Collection
      */
     public function collection($collectionMethod = null)
