@@ -1,0 +1,40 @@
+{
+    "name":"skie/cakephp-factory-muffin",
+    "version": "1.0.0",
+    "description":"CakePHP FactoryMuffin integration plugin",
+    "type":"cakephp-plugin",
+    "keywords":[
+        "cakephp",
+        "search",
+        "filter",
+        "cake"
+    ],
+    "homepage":"https://github.com/skie/cakephp-factory-muffin",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Evgeny Tomenko",
+            "role":"Author",
+            "homepage":"https://github.com/skie"
+        }
+    ],
+    "require":{
+        "cakephp/cakephp": "3.*",
+        "league/factory-muffin": "^3.0",
+        "league/factory-muffin-faker": "^2.0", 
+        "cakephp/plugin-installer": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "cakephp/cakephp-codesniffer": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "CakephpFactoryMuffin\\": "src"
+        }
+    },
+    "support":{
+        "source":"https://github.com/skie/cakephp-factory-muffin",
+        "issues":"https://github.com/skie/cakephp-factory-muffin/issues"
+    }
+}
