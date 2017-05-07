@@ -22,11 +22,11 @@ In your composer.json, simply add `"skie/cakephp-factory-muffin": "*"` to your `
 
 ## Factory definition.
 
-Define factory classes in ```App\Model\Factory``` namespace for application level, in ```${PluginScope}\Model\Factory for plugins```.
+Define factory classes in `App\Model\Factory` namespace for application level, in `${PluginScope}\Model\Factory` for plugins.
 
 Each factory class should contain definition method that describe how to create entity.
 
-By convention factory classes should match with Table classes name but with ```Factory``` suffix.
+By convention factory classes should match with Table classes name but with `Factory` suffix.
 
 ```php
 
@@ -53,7 +53,7 @@ class UsersFactory extends AbstractFactory {
 
 ## Usage
 
-In tests or seed files you can use ```CakephpFactoryMuffin\FactoryLoader``` objects that manage Factory loading and 
+In tests or seed files you can use `CakephpFactoryMuffin\FactoryLoader` objects that manage Factory loading and 
 dispatch creation process to FactoryMuffin.
 
 This class perform cakephp orm integration with FactoryMuffin and serve cakephp tables naming conventions like 'Users', or 'Plugin.Records'.
