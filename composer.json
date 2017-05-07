@@ -33,6 +33,12 @@
             "CakephpFactoryMuffin\\": "src"
         }
     },
+	"autoload-dev": {
+		"psr-4": {
+			"CakephpFactoryMuffin\\Test\\": "tests",
+			"Cake\\Test\\Fixture\\": "./vendor/cakephp/cakephp/tests/Fixture"
+		}
+	},
     "support":{
         "source":"https://github.com/skie/cakephp-factory-muffin",
         "issues":"https://github.com/skie/cakephp-factory-muffin/issues"

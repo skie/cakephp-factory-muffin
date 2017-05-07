@@ -39,6 +39,11 @@ class FactoryLoader
     protected $_registry;
 
     /**
+     * @var array
+     */
+    private static $instance;
+
+    /**
      * FactoryLoader constructor.
      */
     public function __construct()
@@ -70,21 +75,20 @@ class FactoryLoader
     /**
      * Returns FactoryLoader instance.
      *
-     * @return \CakephpFactoryMuffin\Model\FactoryLoader
+     * @return \CakephpFactoryMuffin\FactoryLoader
      */
     public static function getInstance()
     {
-        static $instance = [];
         if (!empty($class)) {
-            if (!$instance || strtolower($class) !== strtolower(get_class($instance[0]))) {
-                $instance[0] = new $class();
+            if (!self::$instance || strtolower($class) !== strtolower(get_class(self::$instance[0]))) {
+                self::$instance[0] = new $class();
             }
         }
-        if (!$instance) {
-            $instance[0] = new FactoryLoader();
+        if (!self::$instance) {
+            self::$instance[0] = new FactoryLoader();
         }
 
-        return $instance[0];
+        return self::$instance[0];
     }
 
     /**
@@ -113,7 +117,7 @@ class FactoryLoader
     public static function loadAll($scope = null)
     {
         if ($scope === null || $scope === 'App') {
-            $path = APP_DIR;
+            $path = APP;
             $prefix = '';
         } else {
             $path = Plugin::classPath($scope);
@@ -183,5 +187,15 @@ class FactoryLoader
         return self::getInstance()
             ->getFactoryMuffin()
             ->instance(get_class($factory), $attr);
+    }
+
+    /**
+     * Removes all loaded factories from FactoryMuffin and Registry.
+     *
+     * @return void
+     */
+    public static function flush()
+    {
+        self::$instance[0] = new FactoryLoader();
     }
 }
