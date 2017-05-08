@@ -1,6 +1,5 @@
 {
     "name":"skie/cakephp-factory-muffin",
-    "version": "1.0.0",
     "description":"CakePHP FactoryMuffin integration plugin",
     "type":"cakephp-plugin",
     "keywords":[
