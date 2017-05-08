@@ -72,7 +72,7 @@ $users = FactoryLoader::seed(10, 'Users');
 
 Here created 11 users records in database.
 
-## In tests we need to flush created objects. It could be achieved by 
+## In tests we need to flush created objects. It could be achieved by call
 
 ```php
 FactoryLoader::getInstance()->getFactoryMuffin()->deleteSaved();
