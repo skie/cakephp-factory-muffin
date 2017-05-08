@@ -33,7 +33,20 @@ class CakephpStore extends ModelStore implements StoreInterface
     {
         $alias = $entity->getSource();
         $table = TableRegistry::get($alias);
-        return $table->save($entity);
+        if ($entity['_recreate']) {
+            $entity->setAccess('*', true);
+            $newEntity = $table->newEntity($entity->toArray());
+            $result = $table->save($newEntity);
+            if ($result) {
+                $result->setAccess('*', true);
+                $entity->set($result->toArray());
+                $entity->set('id', $result->id);
+            }
+        } else {
+            $result = $table->save($entity);
+        }
+
+        return $result;
     }
 
     /**
@@ -46,6 +59,7 @@ class CakephpStore extends ModelStore implements StoreInterface
     {
         $alias = $entity->getSource();
         $table = TableRegistry::get($alias);
+
         return $table->delete($entity);
     }
 }
